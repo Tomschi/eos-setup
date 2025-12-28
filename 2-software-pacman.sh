@@ -36,7 +36,7 @@ PKGS=(
     'tmux'		       # Terminal emulator
 #    'zenity'                  # Display graphical dialog boxes via shell scripts
 #    'zip'                     # Zip compression program
-    'zsh'                     # Interactive shell
+    'zsh'                      # Interactive shell
 #    'zsh-autosuggestions'     # Zsh Plugin
 #    'zsh-syntax-highlighting' # Zsh Plugin
 
@@ -48,7 +48,7 @@ PKGS=(
 
     # CONTAINER -----------------------------------------------------------
     
-    'crun'
+    'crun'		     # The container runtime
     'podman'
     'podman-compose'
 
