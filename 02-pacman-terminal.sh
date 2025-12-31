@@ -12,6 +12,7 @@ PKGS=(
 #    'hardinfo'                # Hardware info app
 #    'htop'                    # Process viewer
     'fastfetch'                 # Shows system info when you launch terminal
+    'fzf'
     'neovim'
 #    'ntp'                     # Network Time Protocol to set time via network.
 #    'numlockx'                # Turns on numlock in X11
@@ -26,6 +27,7 @@ PKGS=(
     'tmux'		       # Terminal emulator
 #    'zenity'                  # Display graphical dialog boxes via shell scripts
 #    'zip'                     # Zip compression program
+    'zoxide'
     'zsh'                      # Interactive shell
 #    'zsh-autosuggestions'     # Zsh Plugin
 #    'zsh-syntax-highlighting' # Zsh Plugin
@@ -33,7 +35,7 @@ PKGS=(
 )
 
 echo
-echo "INSTALLING: "${PKGS[@]}"
+echo "INSTALLING: ${PKGS[@]}"
 sudo pacman -S --noconfirm --needed "${PKGS[@]}"
 
 echo

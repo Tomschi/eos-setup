@@ -1,0 +1,7 @@
+# Set the default behavior, in case people don't have core.autocrlf set.
+# Auto detect text files and perform LF normalization
+*        text=auto
+
+# Linux files should have LF line endings
+*.sh     text eol=lf
+
