@@ -19,6 +19,7 @@ PKGS=(
 #    'p7zip'                   # 7z compression program
 #    'rsync'                   # Remote file sync utility
 #    'speedtest-cli'           # Internet speed via terminal
+    'stow'
 #    'terminus-font'           # Font package with some bigger fonts for login terminal
 #    'unrar'                   # RAR compression program
 #    'unzip'                   # Zip compression program
