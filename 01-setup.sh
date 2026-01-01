@@ -4,6 +4,9 @@
 sudo reflector -c AT,LU,DE,FR,ES,IT,CH --protocol https --sort score --latest 10 --save /etc/pacman.d/mirrorlist \
   && eos-rankmirrors
 
+# update pacman db
+sudo pacman -Syu --noconfirm && sudo grub-mkconfig -o /boot/grub/grub.cfg
+
 # set XDG user directories lower case
 mv ~/Desktop ~/desktop && xdg-user-dirs-update --set DESKTOP ~/desktop
 mv ~/Documents ~/documents && xdg-user-dirs-update --set DOCUMENTS ~/documents
