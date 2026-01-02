@@ -29,8 +29,8 @@ sudo grub-mkconfig -o /boot/grub/grub.cfg
 "$HOME/.local/share/eos-files/exec.sh"
 
 # initialize stow for dotfiles
-stow --dir "$HOME/.local/share/dotfiles" --target "$HOME"
-stow --dir "$HOME/.local/share/dotfiles-kde" --target "$HOME"
+stow --dir "$HOME/.local/share/dotfiles" --target "$HOME" .
+stow --dir "$HOME/.local/share/dotfiles-kde" --target "$HOME" .
 
 # change default shell to zsh
 chsh -s /usr/bin/zsh
