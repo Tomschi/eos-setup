@@ -21,4 +21,11 @@ git clone -b initial github.com:Tomschi/eos-packages.git "$HOME/.local/share/eos
 git clone -b initial github.com:Tomschi/dotfiles-kde-orig.git "$HOME/.local/share/dotfiles-kde-orig"
 git clone -b initial github.com:Tomschi/eos-files-orig.git "$HOME/.local/share/eos-files-orig"
 
+# install packages
 "$HOME/.local/share/eos-packages/sync-packages.sh"
+sudo grub-mkconfig -o /boot/grub/grub.cfg
+
+# copy system files
+"$HOME/.local/share/eos-files/exec.sh"
+
+# TODO: initialize dotfiles
