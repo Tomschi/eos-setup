@@ -28,4 +28,8 @@ sudo grub-mkconfig -o /boot/grub/grub.cfg
 # copy system files
 "$HOME/.local/share/eos-files/exec.sh"
 
-# TODO: initialize dotfiles
+# initialize stow for dotfiles
+stow --dir "$HOME/.local/share/dotfiles" --target "$HOME"
+stow --dir "$HOME/.local/share/dotfiles-kde" --target "$HOME"
+
+chsh -s /usr/bin/zsh
