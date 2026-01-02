@@ -33,4 +33,4 @@ stow --dir "$HOME/.local/share/dotfiles" --target "$HOME" .
 stow --dir "$HOME/.local/share/dotfiles-kde" --target "$HOME" .
 
 # change default shell to zsh
-sudo -s /usr/bin/zsh "$USER"
+sudo chsh -s /usr/bin/zsh "$USER"
