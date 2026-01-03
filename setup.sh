@@ -3,12 +3,22 @@
 # Exit on any error
 set -e
 
-# Get the directory where this script is located
-EOS_SETUP_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+# rank mirrors
+sudo reflector -c AT,LU,DE,FR,ES,IT,CH --protocol https --sort rate --latest 10 --save /etc/pacman.d/mirrorlist \
+  && eos-rankmirrors
 
-for script in "$EOS_SETUP_DIR"/"01-pre"/*.sh; do
-  "$script"
-done
+# update pacman db
+sudo pacman -Syu --noconfirm # && sudo grub-mkconfig -o /boot/grub/grub.cfg
+
+# set XDG user directories lower case
+mv ~/Desktop ~/desktop && xdg-user-dirs-update --set DESKTOP ~/desktop
+mv ~/Documents ~/documents && xdg-user-dirs-update --set DOCUMENTS ~/documents
+mv ~/Downloads ~/downloads && xdg-user-dirs-update --set DOWNLOAD ~/downloads
+mv ~/Music ~/music && xdg-user-dirs-update --set MUSIC ~/music
+mv ~/Pictures ~/pictures && xdg-user-dirs-update --set PICTURES ~/pictures
+mv ~/Public ~/public && xdg-user-dirs-update --set PUBLICSHARE ~/public
+mv ~/Templates ~/templates && xdg-user-dirs-update --set TEMPLATES ~/templates
+mv ~/Videos ~/videos && xdg-user-dirs-update --set VIDEOS ~/videos
 
 # clone repositories
 # TODO: final version should use main branch
@@ -27,6 +37,8 @@ sudo grub-mkconfig -o /boot/grub/grub.cfg
 
 # copy system files
 "$HOME/.local/share/eos-files/exec.sh"
+
+sudo systemctl enable --now  yabsnap.timer
 
 # initialize stow for dotfiles
 stow --dir "$HOME/.local/share/dotfiles" --target "$HOME" .
