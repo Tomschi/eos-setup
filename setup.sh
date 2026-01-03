@@ -3,12 +3,18 @@
 # Exit on any error
 set -e
 
+# Get the directory where this script is located
+EOS_SETUP_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+
 # rank mirrors
 sudo reflector -c AT,LU,DE,FR,ES,IT,CH --protocol https --sort rate --latest 10 --save /etc/pacman.d/mirrorlist \
   && eos-rankmirrors
 
 # update pacman db
 sudo pacman -Syu --noconfirm # && sudo grub-mkconfig -o /boot/grub/grub.cfg
+
+# setup btrfs
+"$EOS_SETUP_DIR/btrfs/setup-btrfs.sh"
 
 # set XDG user directories lower case
 mv ~/Desktop ~/desktop && xdg-user-dirs-update --set DESKTOP ~/desktop
@@ -30,6 +36,7 @@ git clone -b initial github.com:Tomschi/eos-packages.git "$HOME/.local/share/eos
 # TODO: remove, only for script development
 git clone -b initial github.com:Tomschi/dotfiles-kde-orig.git "$HOME/.local/share/dotfiles-kde-orig"
 git clone -b initial github.com:Tomschi/eos-files-orig.git "$HOME/.local/share/eos-files-orig"
+
 
 # install packages
 "$HOME/.local/share/eos-packages/sync-packages.sh"
