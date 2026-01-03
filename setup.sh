@@ -26,6 +26,10 @@ mv ~/Public ~/public && xdg-user-dirs-update --set PUBLICSHARE ~/public
 mv ~/Templates ~/templates && xdg-user-dirs-update --set TEMPLATES ~/templates
 mv ~/Videos ~/videos && xdg-user-dirs-update --set VIDEOS ~/videos
 
+# create user container directory in /var/lib
+sudo mkdir -p /var/lib/$USER/containers
+sudo chown -R $USER:$USER /var/lib/$USER
+
 # clone repositories
 # TODO: final version should use main branch
 git clone -b initial github.com:Tomschi/dotfiles.git "$HOME/.local/share/dotfiles"
