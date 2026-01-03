@@ -35,7 +35,7 @@ if grep -q "$SNAPSHOT_MOUNT_POINT" "$FSTAB"; then
 fi
 
 # Add new entry to fstab
-echo "$BTRFS_DEVICE $SNAPSHOT_MOUNT_POINT btrfs   $MOUNT_OPTIONS 0 0" >> "$FSTAB"
+echo "$BTRFS_DEVICE $SNAPSHOT_MOUNT_POINT btrfs   $MOUNT_OPTIONS 0 0" | sudo tee -a "$FSTAB" > /dev/null
 
 echo "Added entry to fstab:"
 echo "$BTRFS_DEVICE $SNAPSHOT_MOUNT_POINT btrfs   $MOUNT_OPTIONS 0 0"
