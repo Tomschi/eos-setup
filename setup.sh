@@ -55,5 +55,8 @@ sudo systemctl enable --now  yabsnap.timer
 stow --dir "$HOME/.local/share/dotfiles" --target "$HOME" --adopt .
 stow --dir "$HOME/.local/share/dotfiles-kde" --target "$HOME" --adopt .
 
+# initialize dev environments
+rustup default stable
+
 # change default shell to zsh
 sudo chsh -s /usr/bin/zsh "$USER"
