@@ -52,8 +52,8 @@ sudo grub-mkconfig -o /boot/grub/grub.cfg
 sudo systemctl enable --now  yabsnap.timer
 
 # initialize stow for dotfiles
-stow --dir "$HOME/.local/share/dotfiles" --target "$HOME" .
-stow --dir "$HOME/.local/share/dotfiles-kde" --target "$HOME" .
+stow --dir "$HOME/.local/share/dotfiles" --target "$HOME" --adopt .
+stow --dir "$HOME/.local/share/dotfiles-kde" --target "$HOME" --adopt .
 
 # change default shell to zsh
 sudo chsh -s /usr/bin/zsh "$USER"
