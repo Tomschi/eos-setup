@@ -49,6 +49,7 @@ sudo grub-mkconfig -o /boot/grub/grub.cfg
 # copy system files
 "$HOME/.local/share/eos-files/exec.sh"
 
+sudo systemctl enable --now  grub-btrfsd.service
 sudo systemctl enable --now  yabsnap.timer
 
 # initialize stow for dotfiles
